@@ -4,6 +4,7 @@ import { ChatMockup } from "./ChatMockup";
 import { ButtonLink, Pill, Reveal, SectionHead, Wordmark } from "./primitives";
 import { CTA, FAQ, IndustryGrid } from "./Sections";
 import { ProblemThread, ScrollStory } from "./ScrollStory";
+import { RelatedReading } from "./RelatedReading";
 import { SCENES } from "@/lib/scenes";
 
 const COMPLIANCE = [
@@ -269,6 +270,20 @@ export function IndustryPage({ ind }: { ind: Industry }) {
             : `${ind.name}, answered.`
         }
         eyebrow="Frequently answered questions"
+      />
+
+      <RelatedReading
+        slugs={
+          ind.slug === "medical"
+            ? [
+                "reduce-opd-no-shows-whatsapp-hospitals",
+                "whatsapp-automation-guide-hospitals-india",
+              ]
+            : [
+                "ai-communication-system-vs-rule-based-chatbot",
+                "why-every-enquiry-deserves-the-same-answer",
+              ]
+        }
       />
 
       <section className="pb-24">

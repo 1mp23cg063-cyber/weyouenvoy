@@ -72,11 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "enVoy: AI Customer & Patient Communication on WhatsApp | weYou X" },
+      { title: "enVoy | WhatsApp AI Assistant for Businesses" },
       {
         name: "description",
         content:
-          "enVoy is the AI communication system that connects WhatsApp, voice, email and web chat to your existing systems.",
+          "enVoy delivers intelligent WhatsApp AI assistants for Indian hospitals, hotels, and businesses. Automate inquiries, bookings, and support with zero wait.",
       },
       { name: "author", content: "WeYouX" },
       { property: "og:site_name", content: "weYou enVoy" },
@@ -101,29 +101,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "@graph": [
           {
             "@type": "Organization",
-            "@id": `${SITE.domain}/#org`,
-            name: "WeYouX",
+            "@id": "https://weyoux.com/#organization",
+            name: "weYou X",
             url: SITE.parentUrl,
             email: SITE.email,
-            telephone: "+91-9036992826",
-            logo: `${SITE.domain}/logo.png`,
-            address: { "@type": "PostalAddress", addressCountry: "IN" },
+            telephone: SITE.telephone,
+            logo: {
+              "@type": "ImageObject",
+              url: `${SITE.domain}/og-image.png`,
+            },
+            ...(SITE.socials && SITE.socials.length > 0 ? { sameAs: SITE.socials } : {}),
           },
           {
             "@type": "WebSite",
-            "@id": `${SITE.domain}/#site`,
-            name: "weYou enVoy",
+            "@id": `${SITE.domain}/#website`,
+            name: "enVoy",
             url: SITE.domain,
-            publisher: { "@id": `${SITE.domain}/#org` },
+            description:
+              "enVoy delivers intelligent WhatsApp AI assistants for Indian hospitals, hotels, and businesses. Automate inquiries, bookings, and support with zero wait.",
+            publisher: { "@id": "https://weyoux.com/#organization" },
+            inLanguage: "en-IN",
           },
           {
             "@type": "SoftwareApplication",
+            "@id": `${SITE.domain}/#software`,
             name: "enVoy",
             applicationCategory: "BusinessApplication",
-            operatingSystem: "Web, WhatsApp",
-            publisher: { "@id": `${SITE.domain}/#org` },
+            operatingSystem: "All",
+            url: SITE.domain,
+            publisher: { "@id": "https://weyoux.com/#organization" },
+            provider: { "@id": "https://weyoux.com/#organization" },
             description:
-              "AI communication system connecting WhatsApp, voice, email, web chat and app to enterprise CRMs and hospital systems.",
+              "enVoy delivers intelligent WhatsApp AI assistants for Indian hospitals, hotels, and businesses. Automate inquiries, bookings, and support with zero wait.",
           },
         ],
       }),
@@ -140,6 +149,15 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <noscript>
+          <style>{`
+            [style*="opacity: 0"], [style*="opacity:0"] {
+              opacity: 1 !important;
+              transform: none !important;
+              visibility: visible !important;
+            }
+          `}</style>
+        </noscript>
       </head>
       <body>
         {children}

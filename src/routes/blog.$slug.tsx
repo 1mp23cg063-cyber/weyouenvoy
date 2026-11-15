@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CTA } from "@/components/site/Sections";
+import { RelatedReading } from "@/components/site/RelatedReading";
 import { POSTS, SITE, breadcrumb, jsonLd, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -29,13 +30,43 @@ export const Route = createFileRoute("/blog/$slug")({
         ]),
         jsonLd({
           "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: p.title,
-          datePublished: p.date,
-          description: p.summary,
-          author: { "@type": "Organization", name: "WeYouX" },
-          publisher: { "@type": "Organization", name: "WeYouX", url: SITE.parentUrl },
-          mainEntityOfPage: `${SITE.domain}/blog/${params.slug}`,
+          "@graph": [
+            {
+              "@type": "Blog",
+              "@id": `${SITE.domain}/blog#blog`,
+              name: "enVoy Blog",
+              url: `${SITE.domain}/blog`,
+              publisher: { "@id": "https://weyoux.com/#organization" },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BlogPosting",
+              "@id": `${SITE.domain}/blog/${params.slug}#article`,
+              headline: p.title,
+              datePublished: p.date,
+              dateModified: p.modified ?? p.date,
+              description: p.summary,
+              inLanguage: "en-IN",
+              image: `${SITE.domain}/og-image.png`,
+              isPartOf: {
+                "@id": `${SITE.domain}/blog#blog`,
+              },
+              author: {
+                "@id": "https://weyoux.com/#organization",
+              },
+              publisher: {
+                "@type": "Organization",
+                "@id": "https://weyoux.com/#organization",
+                name: "weYou X",
+                url: SITE.parentUrl,
+                logo: {
+                  "@type": "ImageObject",
+                  url: `${SITE.domain}/og-image.png`,
+                },
+              },
+              mainEntityOfPage: `${SITE.domain}/blog/${params.slug}`,
+            },
+          ],
         }),
       ],
     };
@@ -81,6 +112,7 @@ function Post() {
           )}
         </div>
       </article>
+      <RelatedReading excludeSlug={post.slug} />
       <CTA title="One standard. Every customer. Every hour." />
     </>
   );

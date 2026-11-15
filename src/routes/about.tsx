@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "motion/react";
 import { CTA } from "@/components/site/Sections";
-import { breadcrumb, pageHead } from "@/lib/site";
+import { GO_LIVE, LANGUAGES, SITE, breadcrumb, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -151,13 +151,41 @@ function About() {
             >
               <p>
                 Ours speaks for your business to every customer, in your voice. It reaches customers
-                on WhatsApp, Email, Chatbot, App and Voice, replies in any written language
-                (Kannada, Hindi and English out of the box) and goes live in 7 days.
+                on WhatsApp, Email, Chatbot, App and Voice, replies in {LANGUAGES} and goes live in{" "}
+                {GO_LIVE}.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {((SITE.founders && SITE.founders.length > 0) ||
+        SITE.registeredAddress ||
+        SITE.registrationNumber ||
+        (SITE.caseStudies && SITE.caseStudies.length > 0)) && (
+        <section className="container-x py-12">
+          {SITE.founders && SITE.founders.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold text-foreground">Leadership</h2>
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                {SITE.founders.map((f) => (
+                  <div key={f.name} className="rounded-xl border border-border bg-card p-6">
+                    <h3 className="font-semibold text-foreground">{f.name}</h3>
+                    <p className="text-sm text-accent">{f.role}</p>
+                    {f.bio && <p className="mt-2 text-sm text-muted-foreground">{f.bio}</p>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {(SITE.registeredAddress || SITE.registrationNumber) && (
+            <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
+              {SITE.registeredAddress && <p>Registered Address: {SITE.registeredAddress}</p>}
+              {SITE.registrationNumber && <p>Registration: {SITE.registrationNumber}</p>}
+            </div>
+          )}
+        </section>
+      )}
 
       <CTA title="Every journey deserves better communication." />
     </div>

@@ -7,7 +7,7 @@ export const Route = createFileRoute("/privacy")({
     pageHead({
       title: "Privacy Policy: weYou enVoy | WeYouX",
       description:
-        "How WeYouX, operating weYou enVoy, collects, uses and safeguards information under DPDPA 2023 and the IT Act, 2000.",
+        "How WeYouX, operating weYou enVoy, collects, uses and safeguards information under DPDPA 2023, the IT Act, 2000, and Indian data protection regulations.",
       path: "/privacy",
     }),
   component: () => (

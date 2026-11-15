@@ -3,14 +3,14 @@ import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/site/primitives";
 import { PageIntro } from "@/components/site/Sections";
-import { POSTS, breadcrumb, pageHead } from "@/lib/site";
+import { POSTS, SITE, breadcrumb, jsonLd, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     ...pageHead({
-      title: "enVoy Blog: Customer Communication, WhatsApp & Standards",
+      title: "enVoy Blog: Standards & Communication Architecture",
       description:
-        "Notes from the enVoy team on customer communication, WhatsApp and holding one standard for every customer, every hour.",
+        "Thinking from the enVoy team on customer communication standards, multi-channel architecture, WhatsApp business automation, and how enterprises build trust.",
       path: "/blog",
     }),
     scripts: [
@@ -18,6 +18,17 @@ export const Route = createFileRoute("/blog/")({
         { name: "Home", path: "/" },
         { name: "Blog", path: "/blog" },
       ]),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": `${SITE.domain}/blog#blog`,
+        name: "enVoy Blog",
+        url: `${SITE.domain}/blog`,
+        description:
+          "Thinking from the enVoy team on customer communication standards, multi-channel architecture, WhatsApp business automation, and how enterprises build trust.",
+        publisher: { "@id": "https://weyoux.com/#organization" },
+        inLanguage: "en-IN",
+      }),
     ],
   }),
   component: Blog,

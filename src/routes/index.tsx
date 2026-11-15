@@ -14,6 +14,7 @@ import {
 } from "@/lib/site";
 import { ButtonLink, Pill, Reveal, SectionHead, Wordmark } from "@/components/site/primitives";
 import { CTA, FAQ, IndustryGrid } from "@/components/site/Sections";
+import { RelatedReading } from "@/components/site/RelatedReading";
 import { ChatMockup } from "@/components/site/ChatMockup";
 import { LiveDemo } from "@/components/site/LiveDemo";
 import { HomePhotoSection } from "@/components/site/HomePhotoSection";
@@ -36,42 +37,42 @@ const JOURNEY = [
     img: evening,
     time: "11:52 PM",
     text: "Hi, can I book a skin consult this Saturday?",
-    alt: "Customer checking her phone at home in the evening",
+    alt: "Woman sitting on a sofa in a living room at dusk looking thoughtfully at her smartphone",
   },
   {
     stage: "Engagement",
     img: family,
     time: "11:52 PM",
     text: "Of course. Saturday has 10:30 and 12:00 open. Which suits you?",
-    alt: "Parent and daughter checking a message together",
+    alt: "Mother and daughter in school uniform seated at a study table smiling at a smartphone screen",
   },
   {
     stage: "Confirmation",
     img: reception,
     time: "11:53 PM · answered in 4s",
     text: "Booked: Saturday 10:30. Confirmation sent.",
-    alt: "Patient welcomed by a clinic receptionist",
+    alt: "Receptionist behind counter with laptop smiling and assisting a woman holding a smartphone",
   },
   {
     stage: "Reminder",
     img: evening,
     time: "Fri 6:00 PM",
     text: "Reminder: your appointment is tomorrow, Saturday 10:30. Reply here to reschedule.",
-    alt: "Customer checking an appointment message at home",
+    alt: "Woman sitting on a sofa in a living room at dusk looking thoughtfully at her smartphone",
   },
   {
     stage: "Service",
     img: care,
     time: "Sat 10:34 AM",
     text: "Please go to X-ray, Room 12. The technician is expecting you.",
-    alt: "Doctor and patient discussing care",
+    alt: "Female doctor in white coat holding digital tablet and consulting with a seated patient",
   },
   {
     stage: "Follow-up",
     img: care,
     time: "Sat 11:40 AM · conversation complete",
     text: "Your report is ready and shared with your doctor. Your invoice is paid: thank you.",
-    alt: "Doctor discussing follow-up care with a patient",
+    alt: "Female doctor in white coat holding digital tablet and consulting with a seated patient",
   },
 ];
 
@@ -95,36 +96,12 @@ const INBOX = [
 export const Route = createFileRoute("/")({
   head: () => ({
     ...pageHead({
-      title: "enVoy: AI Customer & Patient Communication on WhatsApp | weYou X",
+      title: "enVoy | WhatsApp AI Assistant for Businesses",
       description:
-        "enVoy is the AI communication system connecting WhatsApp, email, chatbot, app and voice to your CRM: live in 7 days across India.",
+        "enVoy delivers intelligent WhatsApp AI assistants for Indian hospitals, hotels, and businesses. Automate inquiries, bookings, and support with zero wait.",
       path: "/",
     }),
-    scripts: [
-      faqLd(HOME_FAQ),
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          name: "weYou enVoy",
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "All",
-          description:
-            "AI communication layer connecting WhatsApp, email, web chat, and voice directly to your enterprise CRM.",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "INR",
-          },
-          author: {
-            "@type": "Organization",
-            name: "WeYouX",
-            url: "https://weyoux.com",
-          },
-        }),
-      },
-    ],
+    scripts: [faqLd(HOME_FAQ)],
   }),
   component: Home,
 });
@@ -551,6 +528,14 @@ function Home() {
       </section>
 
       <Impact />
+      <RelatedReading
+        title="Latest insights & operational guides"
+        slugs={[
+          "reduce-opd-no-shows-whatsapp-hospitals",
+          "whatsapp-automation-guide-hospitals-india",
+          "ai-communication-system-vs-rule-based-chatbot",
+        ]}
+      />
       <FAQ items={HOME_FAQ} />
       <CTA
         title="Let's make every interaction count."

@@ -7,7 +7,7 @@ export const Route = createFileRoute("/terms")({
     pageHead({
       title: "Terms of Service: weYou enVoy | WeYouX",
       description:
-        "Terms governing use of the weYou enVoy communication platform, website and APIs, including the healthcare non-medical services disclaimer.",
+        "Terms governing use of the weYou enVoy communication platform, website and APIs, including our healthcare operational triage and non-medical service disclaimer.",
       path: "/terms",
     }),
   component: () => (

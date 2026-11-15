@@ -8,15 +8,17 @@ enVoy is an end-to-end communication system deployed on official WhatsApp Busine
 
 - **Brand:** enVoy (also referred to as weYou enVoy)
 - **Parent Company:** WeYouX (https://weyoux.com, India)
+- **Contact Email:** sales@weyoux.com
+- **WhatsApp Inbound:** +91 90369 92826
 - **WeYouX Family Brands:**
   - **weYou enVoy:** Patient Journey & Enterprise WhatsApp/Voice communication (https://weyouenvoy.com)
   - **LegalIndia.ai:** AI Legal Intelligence & Title Diligence (https://legalindia.ai)
   - **WeYou World:** Digital Product Design & Venture Studio (https://weyouworld.com)
-- **Deployment Timeline:** 7 business days from onboarding to live production
+- **Deployment Timeline:** 7 business days from onboarding
 - **Channels:** WhatsApp Business API, Voice AI, Web Chatbot, Email, Mobile App
-- **Language Support:** Multilingual support across Indian and global languages including English, Kannada, Hindi, Tamil, Telugu, and more with mid-conversation code-switching
+- **Language Support:** Kannada, Hindi, and English out of the box (additional Indian languages on request)
 - **Enterprise Integrations:** Hospital Management Systems (HMS/HIS), Electronic Medical Records (EMR), CRMs (Salesforce, HubSpot, Zoho, LeadSquared), ERPs, Google Calendar, Outlook, and payment gateways
-- **Compliance & Standards:** DPDPA 2023 (Digital Personal Data Protection Act India), ISO/IEC 27001 aligned security, HIPAA-grade encryption in transit and at rest, SPDI Rules (IT Act 2000), ABDM / ABHA ready architecture
+- **Security & Compliance Alignment:** DPDPA 2023 (Digital Personal Data Protection Act India), ISO/IEC 27001 aligned security, HIPAA-grade encryption in transit and at rest, SPDI Rules (IT Act 2000), ABDM / ABHA ready architecture
 
 ## Core Capabilities
 
@@ -48,15 +50,31 @@ In hospital deployments, enVoy supports the 9 continuous stages of patient care:
 8. **Post-Discharge Follow-Ups:** Day-3 and Day-7 medication adherence and vitals check-ins.
 9. **Patient Feedback & Re-engagement:** Structured reviews, vaccination reminders, and preventive checkup scheduling.
 
+## Blog & Operational Guides
+
+- [Why every enquiry deserves the same answer](https://weyouenvoy.com/blog/why-every-enquiry-deserves-the-same-answer): Delivering consistent customer communication standards 24/7 across every channel.
+- [Reducing OPD No-Shows with WhatsApp Reminders](https://weyouenvoy.com/blog/reduce-opd-no-shows-whatsapp-hospitals): How hospitals automate bilingual reminders and one-tap rescheduling with live HMS sync.
+- [Hospital WhatsApp Automation Guide](https://weyouenvoy.com/blog/whatsapp-automation-guide-hospitals-india): Technical guide covering HMS integration, warm human escalation, regional languages, and data security.
+- [AI Communication System vs Rule-Based Chatbot](https://weyouenvoy.com/blog/ai-communication-system-vs-rule-based-chatbot): Comparing intent-driven multi-channel communication systems against rigid rule-based decision trees.
+
 ## Official Links
 
 - Homepage: https://weyouenvoy.com/
+- Platform Capabilities: https://weyouenvoy.com/platform
+- Healthcare Solutions: https://weyouenvoy.com/medical
+- Education Admissions: https://weyouenvoy.com/schools
+- Spas & Wellness: https://weyouenvoy.com/spas
+- Real Estate Leads: https://weyouenvoy.com/realestate
+- Hospitality Concierge: https://weyouenvoy.com/hotels
+- Other Inbound Businesses: https://weyouenvoy.com/others
 - Contact & Inquiries: https://weyouenvoy.com/contact
 - About weYou X: https://weyouenvoy.com/about
-- Blog & Insights: https://weyouenvoy.com/blog
+- Blog Index: https://weyouenvoy.com/blog
 - Privacy Policy: https://weyouenvoy.com/privacy
 - Terms of Service: https://weyouenvoy.com/terms
 - Parent Corporate Site: https://weyoux.com/
 - Sister Brand - LegalIndia.ai: https://legalindia.ai/
 - Sister Brand - WeYou World: https://weyouworld.com/
 - Full Technical Reference: https://weyouenvoy.com/llms-full.txt
+
+Last updated: 2026-11-15

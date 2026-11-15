@@ -1,12 +1,32 @@
 // Real business facts carried over from the original weyouenvoy.com site.
+export const GO_LIVE = "7 business days from onboarding";
+export const LANGUAGES =
+  "Kannada, Hindi, and English out of the box (additional Indian languages on request)";
+export const CONTACT_EMAIL = "sales@weyoux.com";
+export const COMPLIANCE_STATEMENT =
+  "Security and architecture aligned with enterprise data protection standards";
+
+export interface Founder {
+  name: string;
+  role: string;
+  bio?: string;
+}
+
+export interface CaseStudy {
+  title: string;
+  metric: string;
+  description: string;
+}
+
 export const SITE = {
   name: "weYou enVoy",
   domain: "https://weyouenvoy.com",
   parent: "WeYouX",
   parentUrl: "https://weyoux.com",
-  email: "sales@weyoux.com",
+  email: CONTACT_EMAIL,
   privacyEmail: "privacy@weyoux.com",
   corporateEmail: "corporate@weyoux.com",
+  telephone: "+919036992826",
   whatsapp: "+91 90369 92826",
   whatsappLink: "https://wa.me/919036992826",
   location: "India",
@@ -16,6 +36,11 @@ export const SITE = {
     { name: "LegalIndia.ai", url: "https://legalindia.ai" },
     { name: "WeYou World", url: "https://weyouworld.com" },
   ],
+  socials: [] as string[],
+  founders: [] as Founder[],
+  registeredAddress: undefined as string | undefined,
+  registrationNumber: undefined as string | undefined,
+  caseStudies: [] as CaseStudy[],
 };
 
 export const ENVOY_API = "https://envoy.weyoux.com";
@@ -111,7 +136,7 @@ export const HOME_FAQ = [
   },
   {
     q: "How quickly does enVoy go live?",
-    a: "7 days from signup. We train enVoy on your prices, common questions, and tone, then connect it to your WhatsApp number, your team's calendars, and your records.",
+    a: `${GO_LIVE}. We train enVoy on your prices, common questions, and tone, then connect it to your WhatsApp number, your team's calendars, and your records.`,
   },
   {
     q: "Which industries is enVoy built for?",
@@ -119,7 +144,7 @@ export const HOME_FAQ = [
   },
   {
     q: "What languages does enVoy speak?",
-    a: "Any written language: Kannada, Hindi and English out of the box. enVoy switches language mid-chat, reading what the customer typed and replying in kind.",
+    a: `${LANGUAGES}. enVoy switches language mid-chat, reading what the customer typed and replying in kind.`,
   },
   {
     q: "Does enVoy connect to my systems?",
@@ -513,7 +538,7 @@ export const INDUSTRIES: Industry[] = [
       "The guest conversation: looked after, start to finish. From first enquiry to post-stay thank-you, enVoy handles every guest message.",
     title: "Hotel & Resort WhatsApp Guest Messaging | enVoy Hospitality",
     description:
-      "enVoy handles every guest message from first enquiry to post-stay thank-you: direct bookings, in-stay requests and follow-ups, synced with your PMS and channel manager.",
+      "enVoy handles every guest message from first enquiry to post-stay thank-you: direct bookings, in-stay requests and follow-ups, synced with your hotel PMS.",
     problems: [
       "Booking enquiries lost to OTAs and commissions",
       "Guest requests scattered across desks",
@@ -608,7 +633,7 @@ export const INDUSTRIES: Industry[] = [
       "Book Saturday visits from midnight enquiries. A 1am enquiry is still warm at 9am if it's answered. enVoy qualifies, sends floor plans, books the visit.",
     title: "Real Estate Lead Qualification on WhatsApp | enVoy",
     description:
-      "enVoy answers property enquiries instantly, gathers budget and timeline, sends floor plans and pricing, and books site visits so your team meets buyers who are ready.",
+      "enVoy answers property enquiries instantly, gathers budget and timeline, sends floor plans and pricing, and books site visits so your team meets ready buyers.",
     problems: [
       "Midnight enquiries that go cold by morning",
       "Sales time spent on unqualified leads",
@@ -705,7 +730,7 @@ export const INDUSTRIES: Industry[] = [
       "If customers message you, enVoy is for you. It sorts real enquiries from noise and follows up until they decide.",
     title: "WhatsApp AI for Inbound Businesses | enVoy",
     description:
-      "For D2C, services and any inbound business: enVoy unifies WhatsApp, email, chatbot and app into one inbox, sorts real enquiries and follows up until customers decide.",
+      "For D2C, services and inbound businesses: enVoy unifies WhatsApp, email, chatbot and app into one inbox, sorts enquiries, and follows up until customers decide.",
     problems: [
       "Real customers buried in noise",
       "Quotes and orders that stall",
@@ -778,13 +803,24 @@ export const INDUSTRIES: Industry[] = [
 
 export const industryBySlug = (slug: Industry["slug"]) => INDUSTRIES.find((i) => i.slug === slug)!;
 
-export const POSTS = [
+export type BlogPost = {
+  slug: string;
+  title: string;
+  date: string;
+  modified?: string;
+  summary: string;
+  tags: string[];
+  body: { type: "p" | "h2" | "quote" | "li"; text: string }[];
+};
+
+export const POSTS: BlogPost[] = [
   {
     slug: "why-every-enquiry-deserves-the-same-answer",
     title: "Why every enquiry deserves the same answer",
     date: "2026-11-01",
+    modified: "2026-11-15",
     summary:
-      "The customer who messages at 11:52 PM should meet the same prepared business as the one who walks in at 10 AM.",
+      "The customer who messages at 11:52 PM should meet the same prepared business as the one who walks in at 10 AM. enVoy delivers consistent standards 24/7.",
     tags: ["WhatsApp", "Standards"],
     body: [
       {
@@ -815,6 +851,243 @@ export const POSTS = [
       { type: "p", text: "That is the whole idea. Tell less, deliver more." },
     ] as { type: "p" | "h2" | "quote" | "li"; text: string }[],
   },
+  {
+    slug: "reduce-opd-no-shows-whatsapp-hospitals",
+    title: "Reducing OPD No-Shows with WhatsApp Reminders",
+    date: "2026-11-15",
+    modified: "2026-11-15",
+    summary:
+      "Hospitals reduce missed appointments by automating bilingual WhatsApp reminders, enabling one-tap rescheduling, and synchronizing slots with their live HMS.",
+    tags: ["Healthcare", "WhatsApp", "Operations"],
+    body: [
+      {
+        type: "p",
+        text: "Outpatient departments in hospitals across India manage high volumes of patient consultations every morning. When patients miss scheduled visits without advance notice, consulting doctors lose valuable clinical time while other patients wait weeks for open slots. Reducing unattended consultations requires reaching patients through channels they check regularly and making schedule adjustments effortless.",
+      },
+      {
+        type: "h2",
+        text: "Why do outpatient appointments go unattended in Indian hospitals?",
+      },
+      {
+        type: "p",
+        text: "Patients miss hospital outpatient visits primarily due to scheduling friction, forgotten booking times, and difficulty contacting reception during busy hours. When confirmation relies on phone calls or SMS messages that patients overlook, appointments slip through. Unattended slots disrupt doctor schedules and leave clinic resources underutilized throughout the day.",
+      },
+      {
+        type: "p",
+        text: "Traditional reminder workflows struggle because front desk personnel cannot manually call hundreds of patients each afternoon. Automated telephone calls often go unanswered when patients are at work or commuting. Standard text messages frequently land in promotional filters without giving patients a way to reply. When patients encounter unexpected delays or family obligations, reaching a hospital telephone line to reschedule requires enduring long hold times, leading many to simply abandon the consultation.",
+      },
+      {
+        type: "p",
+        text: "This breakdown impacts both healthcare delivery and patient outcomes. Chronic care patients who miss follow-up consultations experience interruptions in prescription reviews and diagnostic monitoring. Meanwhile, hospital clinics bear the administrative expense of unutilized rooms, idle diagnostic equipment, and disrupted clinical workflows that could easily be avoided through responsive, bi-directional communication.",
+      },
+      {
+        type: "h2",
+        text: "How does automated WhatsApp communication deliver timely reminders?",
+      },
+      {
+        type: "p",
+        text: "Automated reminders reach patients on their preferred messaging application at scheduled intervals before their consultation. Messages deliver essential preparation details, doctor specialty information, and hospital entrance instructions directly to the patient phone. Because notifications arrive in active messaging threads, patients receive prompt alerts without downloading separate hospital applications or monitoring email.",
+      },
+      {
+        type: "p",
+        text: "A well-structured reminder sequence sends a confirmation immediately upon booking, followed by an advance notification the evening prior to consultation and a final reminder on the morning of the visit. For diagnostic procedures or consultations requiring specific preparation, reminders include dietary instructions, fasting guidelines, and documents to bring. Patients review these details comfortably on their phones, arriving prepared and on time.",
+      },
+      {
+        type: "p",
+        text: "Furthermore, messages can include precise directions to the relevant hospital block, registration counter, and parking facilities. Removing pre-visit ambiguity reduces patient anxiety, streamlines morning clinic queues, and ensures clinical consultations proceed according to schedule.",
+      },
+      {
+        type: "h2",
+        text: "Can patients reschedule or cancel consultations directly in chat?",
+      },
+      {
+        type: "p",
+        text: "Patients can confirm, reschedule, or cancel upcoming consultations by sending a brief reply in their WhatsApp conversation. The intelligent system interprets natural language responses, checks doctor availability calendars in real time, and offers alternative consultation hours immediately. Freed appointment slots return to the outpatient pool without manual reception coordinator intervention.",
+      },
+      {
+        type: "p",
+        text: "When rescheduling is as simple as sending a quick message, patients proactively adjust their visit rather than failing to arrive. The conversational interface understands requests across languages and offers the next available appointments with the same consulting specialist. If a patient cancels, the open slot is instantly registered in the clinic roster, allowing another patient to book without delay.",
+      },
+      {
+        type: "p",
+        text: "This responsive capability turns potential missed appointments into successful future consultations. Receptionists avoid juggling phone lines, while patients appreciate the courtesy of an instant, frictionless adjustment process that respects their daily schedule.",
+      },
+      {
+        type: "h2",
+        text: "How do WhatsApp reminders integrate with hospital management systems?",
+      },
+      {
+        type: "p",
+        text: "The communication layer connects directly to hospital management systems and electronic medical records through secure database connectors and interfaces. It reads clinical rosters to trigger contextual reminders and writes confirmed rescheduling changes back to the hospital database instantly. Patient records, cancellation reasons, and attendance confirmations remain synchronized across all clinical departments.",
+      },
+      {
+        type: "p",
+        text: "Operating on top of existing hospital infrastructure ensures zero operational disruption for clinical staff. Doctors and reception teams continue working within their familiar hospital software, viewing updated appointment rosters and patient confirmation statuses in real time. Automated synchronization bridges the gap between hospital databases and patient messaging without creating data silos or administrative double entry.",
+      },
+      {
+        type: "p",
+        text: "Automating patient reminders over messaging channels creates a dependable outpatient consultation workflow. Hospitals maintain full doctor consultation schedules, reduce waiting room overcrowding, and provide patients with responsive, courteous guidance from initial booking through arrival.",
+      },
+    ],
+  },
+  {
+    slug: "whatsapp-automation-guide-hospitals-india",
+    title: "Hospital WhatsApp Automation Guide",
+    date: "2026-11-15",
+    modified: "2026-11-15",
+    summary:
+      "Key requirements for hospital WhatsApp automation: live HMS integration, warm human escalation, regional language support, and secure data architecture.",
+    tags: ["Healthcare", "HMS", "Automation"],
+    body: [
+      {
+        type: "p",
+        text: "Healthcare institutions across India are adopting WhatsApp as an operational communication channel to connect with patients throughout their medical journey. Because patient care demands accuracy, responsiveness, and trust, hospitals must evaluate automation platforms against rigorous operational and architectural criteria rather than treating messaging as a simple marketing utility.",
+      },
+      {
+        type: "h2",
+        text: "Why is live HMS integration essential for hospital messaging?",
+      },
+      {
+        type: "p",
+        text: "Live integration with hospital management systems ensures patient conversations reflect real clinical capacity rather than static assumptions. An automated messaging interface must query active doctor schedules, room availability, and outpatient queues to prevent double bookings. Writing confirmed appointments and patient notes back into hospital records maintains unified administrative and clinical continuity.",
+      },
+      {
+        type: "p",
+        text: "A standalone chatbot that merely collects patient details in an isolated inbox creates administrative delays and frustrating scheduling conflicts. True operational automation connects directly with the hospital system of record, checking consulting rosters in real time and confirming bookings immediately. When consultation notes, diagnostic bookings, and bill receipts flow directly between messaging and hospital databases, staff remain informed without manual data entry.",
+      },
+      {
+        type: "p",
+        text: "This integration must be bi-directional. When a doctor modifies their clinic hours or steps into surgery, the communication system immediately reflects that change, preventing patients from booking unavailable slots. By synchronizing directly with hospital calendars, communication remains aligned with clinical operations.",
+      },
+      {
+        type: "h2",
+        text: "How should an automated system handle clinical human escalation?",
+      },
+      {
+        type: "p",
+        text: "Hospital communication requires immediate, reliable escalation to duty nursing staff or appointment coordinators whenever inquiries exceed automated operational boundaries. The system must hand over conversations with complete conversational context, patient history, and identified urgency already open. Coordinators review full message logs without forcing patients to repeat symptoms or administrative questions.",
+      },
+      {
+        type: "p",
+        text: "No automated system should attempt to handle complex patient situations or urgent medical requests in isolation. When a patient describes acute discomfort or requires specialized coordination, the platform routes the dialogue to the appropriate departmental console. Attending coordinators receive patient contact information, consultation history, and recent interaction summaries, ensuring swift, compassionate, and informed human care.",
+      },
+      {
+        type: "p",
+        text: "The handover must be seamless for the patient. Rather than giving the patient a different phone number to call, the staff member joins the ongoing conversation directly, providing reassuring assistance while maintaining complete conversational continuity.",
+      },
+      {
+        type: "h2",
+        text: "Which language capabilities are critical for Indian healthcare communication?",
+      },
+      {
+        type: "p",
+        text: "Hospitals in India serve multilingual patient communities who discuss medical concerns in their mother tongue. Communication systems must support Kannada, Hindi, and English out of the box, with additional Indian languages on request. The engine must switch languages mid-conversation, recognizing patient vocabulary and replying in kind without rigid menu selections.",
+      },
+      {
+        type: "p",
+        text: "Patients frequently combine languages when asking about doctor timings, billing procedures, or test reports. A system that forces users to navigate English-only menus creates unnecessary barriers to care. Contextual language understanding interprets colloquial terms and dialect variations, ensuring elderly patients and family members receive clear, empathetic, and culturally appropriate guidance throughout their care journey.",
+      },
+      {
+        type: "p",
+        text: "When patients receive guidance in the language they understand best, adherence to pre-visit instructions improves, questions are resolved faster, and overall confidence in the hospital increases.",
+      },
+      {
+        type: "h2",
+        text: "What data protection standards must hospital communication uphold?",
+      },
+      {
+        type: "p",
+        text: "Healthcare communication involves sensitive patient interactions that require robust technical protection. Systems must maintain security and architecture aligned with enterprise data protection standards. Patient interactions must be protected through encryption in transit and at rest, role-based staff access controls, explicit patient consent mechanisms, and clear institutional ownership of all medical records.",
+      },
+      {
+        type: "p",
+        text: "Hospitals must ensure patient records remain confidential and secure at every stage of the communication lifecycle. Communication software should operate strictly as an operational processor, routing appointments, reminders, and reports on behalf of the hospital without claiming ownership of patient data. Role-based permissions prevent unauthorized internal access, keeping clinical and administrative records fully protected.",
+      },
+      {
+        type: "p",
+        text: "Selecting the right communication platform allows healthcare institutions to deliver prompt, accessible, and dependable service across outpatient triage, booking, and post-discharge follow-ups while preserving clinical precision and operational integrity.",
+      },
+    ],
+  },
+  {
+    slug: "ai-communication-system-vs-rule-based-chatbot",
+    title: "AI Communication System vs Rule-Based Chatbot",
+    date: "2026-11-15",
+    modified: "2026-11-15",
+    summary:
+      "Compare AI communication systems with rule-based chatbots. Learn how contextual language, live database sync, and warm human handoff transform customer service.",
+    tags: ["AI", "Architecture", "Standards"],
+    body: [
+      {
+        type: "p",
+        text: "Many organizations implement automated customer service tools hoping to answer inquiries promptly and scale operations. However, customers frequently encounter frustrating keyword-matching chatbots that fail to understand natural conversation or execute real tasks. Understanding the fundamental architectural difference between rigid chatbots and true AI communication systems is critical for enterprise leaders.",
+      },
+      {
+        type: "h2",
+        text: "What distinguishes an AI communication system from a rule-based chatbot?",
+      },
+      {
+        type: "p",
+        text: "A rule-based chatbot navigates predetermined decision trees and keyword triggers, breaking when customer requests deviate from scripted buttons. An AI communication system understands natural language intent, reads customer urgency and context, queries live business databases in real time, and coordinates operational actions like bookings and records updates across channels.",
+      },
+      {
+        type: "p",
+        text: "Rule-based bots resemble automated phone trees transplanted into text windows. If a customer types a sentence slightly different from the anticipated phrasing, the bot responds with confusion or repeats generic menu options. An AI communication system is trained on company offerings, policies, pricing, and operating procedures, allowing it to interpret nuanced requests and converse with genuine understanding.",
+      },
+      {
+        type: "p",
+        text: "Because the underlying technology models language context rather than rigid paths, it can grasp complex multi-intent sentences. Customers feel heard rather than constrained by scripted choices.",
+      },
+      {
+        type: "h2",
+        text: "How do conversational systems handle unstructured customer inquiries?",
+      },
+      {
+        type: "p",
+        text: "Customers rarely frame questions in rigid keywords or neat menu options when seeking assistance. An intelligent communication system interprets unstructured messages, typos, and mixed languages to extract core intent. It cross-references inquiries with organizational knowledge, service catalogs, and live availability to provide helpful, conversational answers tailored to specific requests.",
+      },
+      {
+        type: "p",
+        text: "When a customer asks a multi-part question regarding appointment timings, specialist availability, and location directions in a single paragraph, traditional chatbots fail. An intelligent communication system identifies each distinct component of the query, retrieves verified information from connected systems, and composes an organized, direct response that completely addresses the customer's needs.",
+      },
+      {
+        type: "p",
+        text: "This contextual flexibility extends across conversation turns. If a customer clarifies a previous statement or changes their preferred consultation date mid-chat, the system maintains conversational memory, updating the proposed plan without restarting the entire conversation from the beginning.",
+      },
+      {
+        type: "h2",
+        text: "Why is live database synchronization critical for customer conversations?",
+      },
+      {
+        type: "p",
+        text: "Rule-based chatbots often function as disconnected forms that collect contact information and stall until human review. An operational communication system connects directly to enterprise databases, room inventories, and staff calendars. It verifies current availability, completes reservations instantly, and writes transaction summaries back to systems of record without manual intermediary steps.",
+      },
+      {
+        type: "p",
+        text: "True operational communication requires closing loops rather than merely capturing leads. When a patient books an appointment or a hotel guest reserves a room, the communication engine queries live availability, locks the selected inventory, issues verified confirmations, and updates team calendars immediately. Customers receive definitive outcomes rather than vague promises of future follow-up.",
+      },
+      {
+        type: "p",
+        text: "Writing confirmed details directly back to customer relationship systems guarantees that front desk coordinators, service staff, and sales teams see identical, up-to-date information across all channels.",
+      },
+      {
+        type: "h2",
+        text: "When and how does an intelligent communication system escalate to staff?",
+      },
+      {
+        type: "p",
+        text: "Intelligent systems detect conversational complexity, frustration, or specialized requirements that warrant personal attention. Instead of dropping calls or looping repeatedly, the platform transfers the thread to designated team members seamlessly. Staff receive the entire interaction history, identified customer context, and summarized intent, enabling warm handoffs without customer frustration.",
+      },
+      {
+        type: "p",
+        text: "Effective automation respects human expertise rather than attempting to replace it entirely. When a conversation requires nuanced judgment, high-touch sales negotiation, or specialized clinical attention, the system immediately routes the active dialogue to staff consoles. Relationship managers step into the conversation fully informed, delivering exceptional customer experiences.",
+      },
+      {
+        type: "p",
+        text: "Moving from rigid decision trees to intelligent communication systems elevates enterprise service standards. Businesses provide dependable, round-the-clock responsiveness while maintaining personal warmth and operational rigor across every customer touchpoint.",
+      },
+    ],
+  },
 ];
 
 export function pageHead(opts: {
@@ -822,8 +1095,10 @@ export function pageHead(opts: {
   description: string;
   path: string;
   type?: string;
+  robots?: string;
 }) {
   const url = `${SITE.domain}${opts.path}`;
+  const imageAlt = "enVoy by weYou X - WhatsApp AI Communication Platform";
   return {
     meta: [
       { title: opts.title },
@@ -832,11 +1107,22 @@ export function pageHead(opts: {
       { property: "og:description", content: opts.description },
       { property: "og:type", content: opts.type ?? "website" },
       { property: "og:url", content: url },
+      { property: "og:locale", content: "en_IN" },
       { property: "og:image", content: `${SITE.domain}/og-image.png` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: imageAlt },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: opts.title },
       { name: "twitter:description", content: opts.description },
       { name: "twitter:image", content: `${SITE.domain}/og-image.png` },
+      { name: "twitter:image:alt", content: imageAlt },
+      {
+        name: "robots",
+        content:
+          opts.robots ??
+          "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
     ],
     links: [{ rel: "canonical", href: url }],
   };
