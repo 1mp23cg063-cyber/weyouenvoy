@@ -110,15 +110,18 @@ export function LiveDemo() {
               </p>
             </div>
             <div
-              className="w-full min-w-0 rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-soft"
+              className="w-full min-w-0 rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-soft"
               aria-live="polite"
             >
               {(state === "idle" || state === "error") && (
                 <form onSubmit={submit} noValidate className="w-full min-w-0">
-                  <label htmlFor="demoUrl" className="text-sm font-semibold text-foreground">
+                  <label
+                    htmlFor="demoUrl"
+                    className="block text-sm font-semibold tracking-tight text-foreground"
+                  >
                     Your website
                   </label>
-                  <div className="mt-2 flex flex-col gap-2.5 sm:flex-row w-full min-w-0">
+                  <div className="mt-3 flex flex-col gap-3 sm:flex-row w-full min-w-0">
                     <input
                       id="demoUrl"
                       type="url"
@@ -127,25 +130,29 @@ export function LiveDemo() {
                       placeholder="yourbusiness.com"
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
-                      className="h-12 w-full min-w-0 flex-1 rounded-full border border-input bg-background px-4 sm:px-5 text-foreground outline-none focus:ring-2 focus:ring-ring"
+                      className="h-12 sm:h-14 w-full min-w-0 sm:flex-1 rounded-2xl border border-input/80 bg-background px-4 sm:px-5 text-base text-foreground placeholder:text-muted-foreground/50 transition-all focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/15 leading-normal"
                     />
                     <button
                       type="submit"
-                      className="h-12 w-full sm:w-auto shrink-0 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                      className="h-12 sm:h-14 w-full sm:w-auto shrink-0 rounded-2xl bg-primary px-6 sm:px-7 text-sm sm:text-base font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       See it live →
                     </button>
                   </div>
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    Instant preview · No signup required
+                  </p>
                   {state === "error" && (
-                    <p role="alert" className="mt-3 text-sm text-destructive">
+                    <p role="alert" className="mt-3 text-sm font-medium text-destructive">
                       {msg}
                     </p>
                   )}
                 </form>
               )}
               {state === "scan" && (
-                <div className="py-4 w-full min-w-0">
-                  <div className="h-1.5 overflow-hidden rounded-full bg-muted w-full">
+                <div className="py-2 w-full min-w-0">
+                  <p className="text-sm font-semibold text-foreground mb-3">Analyzing website</p>
+                  <div className="h-2 overflow-hidden rounded-full bg-muted w-full">
                     <div
                       className="h-full rounded-full bg-accent transition-all duration-[3500ms]"
                       style={{ width: `${30 + step * 30}%` }}
@@ -157,16 +164,18 @@ export function LiveDemo() {
                       cleanup();
                       setState("idle");
                     }}
-                    className="mt-4 text-sm text-muted-foreground underline"
+                    className="mt-4 text-xs text-muted-foreground hover:text-foreground underline transition-colors cursor-pointer"
                   >
                     Cancel crawl
                   </button>
                 </div>
               )}
               {state === "ready" && (
-                <div className="py-4 w-full min-w-0">
-                  <p className="text-2xl font-display text-foreground">Your AI is ready.</p>
-                  <p className="mt-2 text-muted-foreground break-words">
+                <div className="py-2 w-full min-w-0">
+                  <p className="text-2xl font-display font-semibold text-foreground">
+                    Your AI is ready.
+                  </p>
+                  <p className="mt-2 text-sm sm:text-base text-muted-foreground break-words">
                     {biz
                       ? `${biz}'s assistant is open on this page: ask it anything.`
                       : "Your assistant is open on this page: ask it anything."}
@@ -177,7 +186,7 @@ export function LiveDemo() {
                       setUrl("");
                       setState("idle");
                     }}
-                    className="mt-5 rounded-full border border-border px-5 py-2 text-sm"
+                    className="mt-5 rounded-2xl border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition-colors cursor-pointer"
                   >
                     Try another
                   </button>

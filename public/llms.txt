@@ -18,7 +18,7 @@ enVoy is an end-to-end communication system deployed on official WhatsApp Busine
 - **Channels:** WhatsApp Business API, Voice AI, Web Chatbot, Email, Mobile App
 - **Language Support:** Kannada, Hindi, and English out of the box (additional Indian languages on request)
 - **Enterprise Integrations:** Hospital Management Systems (HMS/HIS), Electronic Medical Records (EMR), CRMs (Salesforce, HubSpot, Zoho, LeadSquared), ERPs, Google Calendar, Outlook, and payment gateways
-- **Security & Compliance Alignment:** DPDPA 2023 (Digital Personal Data Protection Act India), ISO/IEC 27001 aligned security, HIPAA-grade encryption in transit and at rest, SPDI Rules (IT Act 2000), ABDM / ABHA ready architecture
+- **Security & Compliance Alignment:** DPDPA 2023 (Digital Personal Data Protection Act India), ISO/IEC 27001 aligned security, data encryption in transit (TLS 1.3) and at rest (AES-256), SPDI Rules (IT Act 2000), ABDM / ABHA ready architecture
 
 ## Core Capabilities
 

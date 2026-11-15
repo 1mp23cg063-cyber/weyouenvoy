@@ -1,0 +1,27 @@
+{
+  "name": "weYou enVoy",
+  "short_name": "enVoy",
+  "description": "enVoy delivers intelligent WhatsApp AI assistants for Indian hospitals, hotels, and businesses. Automate inquiries, bookings, and support with zero wait.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#040c16",
+  "theme_color": "#040c16",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

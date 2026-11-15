@@ -18,7 +18,7 @@ export const Route = createFileRoute("/realestate")({
         "@type": "Service",
         name: `enVoy for ${ind.name}`,
         serviceType: "Customer communication automation",
-        provider: { "@type": "Organization", name: "WeYouX", url: SITE.parentUrl },
+        provider: { "@id": "https://weyoux.com/#organization" },
         areaServed: "IN",
         description: ind.description,
       }),

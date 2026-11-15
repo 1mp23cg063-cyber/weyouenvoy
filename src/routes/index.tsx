@@ -20,9 +20,7 @@ import { LiveDemo } from "@/components/site/LiveDemo";
 import { HomePhotoSection } from "@/components/site/HomePhotoSection";
 import evening from "@/assets/home-evening-enquiry.jpg";
 import reception from "@/assets/home-connected-reception.jpg";
-import family from "@/assets/home-family-message.jpg";
 import hotel from "@/assets/home-hotel-welcome.jpg";
-import care from "@/assets/home-care-followup.jpg";
 import team from "@/assets/home-coordinated-team.jpg";
 
 const ORIGINAL_LOGOS: Record<string, string> = {
@@ -30,51 +28,6 @@ const ORIGINAL_LOGOS: Record<string, string> = {
   annveshan: "/annveshan-logo.png",
   chipdesigner: "/chipdesigner-logo.png",
 };
-
-const JOURNEY = [
-  {
-    stage: "Enquiry",
-    img: evening,
-    time: "11:52 PM",
-    text: "Hi, can I book a skin consult this Saturday?",
-    alt: "Woman sitting on a sofa in a living room at dusk looking thoughtfully at her smartphone",
-  },
-  {
-    stage: "Engagement",
-    img: family,
-    time: "11:52 PM",
-    text: "Of course. Saturday has 10:30 and 12:00 open. Which suits you?",
-    alt: "Mother and daughter in school uniform seated at a study table smiling at a smartphone screen",
-  },
-  {
-    stage: "Confirmation",
-    img: reception,
-    time: "11:53 PM · answered in 4s",
-    text: "Booked: Saturday 10:30. Confirmation sent.",
-    alt: "Receptionist behind counter with laptop smiling and assisting a woman holding a smartphone",
-  },
-  {
-    stage: "Reminder",
-    img: evening,
-    time: "Fri 6:00 PM",
-    text: "Reminder: your appointment is tomorrow, Saturday 10:30. Reply here to reschedule.",
-    alt: "Woman sitting on a sofa in a living room at dusk looking thoughtfully at her smartphone",
-  },
-  {
-    stage: "Service",
-    img: care,
-    time: "Sat 10:34 AM",
-    text: "Please go to X-ray, Room 12. The technician is expecting you.",
-    alt: "Female doctor in white coat holding digital tablet and consulting with a seated patient",
-  },
-  {
-    stage: "Follow-up",
-    img: care,
-    time: "Sat 11:40 AM · conversation complete",
-    text: "Your report is ready and shared with your doctor. Your invoice is paid: thank you.",
-    alt: "Female doctor in white coat holding digital tablet and consulting with a seated patient",
-  },
-];
 
 const PROBLEMS = [
   ["Missed enquiries", "The 11:52 PM message nobody sees until morning."],

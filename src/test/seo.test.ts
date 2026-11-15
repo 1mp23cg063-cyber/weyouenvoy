@@ -283,6 +283,29 @@ describe("Structured Data (JSON-LD) Integrity", () => {
       }
     },
   );
+
+  it.each(allIndexableRoutes.map((r) => [r.path, r]))(
+    "%s contains no inline Organization named 'WeYouX'",
+    (_, route) => {
+      const pageJsonLd = parseJsonLdScripts(route.head.scripts);
+      function assertNoInlineWeYouX(obj: unknown) {
+        if (!obj || typeof obj !== "object") return;
+        const rec = obj as Record<string, unknown>;
+        if (rec["@type"] === "Organization" && (rec.name === "WeYouX" || rec.name === "weYou X")) {
+          expect(
+            rec["@id"],
+            `Found inline Organization named "${rec.name}" without canonical @id in ${route.path}`,
+          ).toBe("https://weyoux.com/#organization");
+        }
+        for (const v of Object.values(rec)) {
+          assertNoInlineWeYouX(v);
+        }
+      }
+      for (const node of pageJsonLd) {
+        assertNoInlineWeYouX(node);
+      }
+    },
+  );
 });
 
 describe("Fact Consistency Across site.ts, llms.txt and llms-full.txt", () => {

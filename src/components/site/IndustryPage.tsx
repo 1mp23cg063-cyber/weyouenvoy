@@ -10,7 +10,7 @@ import { SCENES } from "@/lib/scenes";
 const COMPLIANCE = [
   ["DPDPA 2023", "Consent, access & erasure controls"],
   ["ISO/IEC 27001", "Information security controls"],
-  ["HIPAA-grade", "Encryption in transit & at rest"],
+  ["Data Encryption", "Encryption in transit & at rest"],
   ["IT Act & SPDI", "Sensitive personal data safeguards"],
   ["CEA 2010", "Records & grievance compliance"],
   ["ABDM / ABHA-ready", "Aligned with Indian digital health and data stack"],

@@ -30,7 +30,7 @@ The platform consists of four interconnected architectural layers:
 - **Channels:** WhatsApp Business API, Voice AI, Web Chatbot, Mobile App, Email
 - **Language Coverage:** Kannada, Hindi, and English out of the box (additional Indian languages on request)
 - **System Integration:** Operates on top of existing HMS/EMR/CRM systems (e.g., Cerner, Epic, Kareo, Practo, custom hospital SQL databases, Salesforce, LeadSquared) without replacing core clinical record databases
-- **Security & Compliance Alignment:** Aligned with DPDPA 2023 (Digital Personal Data Protection Act India), ISO/IEC 27001 information security controls, HIPAA-grade end-to-end data encryption, and SPDI Rules (IT Act 2000)
+- **Security & Compliance Alignment:** Aligned with DPDPA 2023 (Digital Personal Data Protection Act India), ISO/IEC 27001 information security controls, data encryption in transit (TLS 1.3) and at rest (AES-256), and SPDI Rules (IT Act 2000)
 
 ## 3. The 9-Stage Hospital Patient Journey
 
@@ -63,7 +63,7 @@ Yes. enVoy connects securely to existing HMS, HIS, and EMR databases via RESTful
 After a patient is discharged, enVoy triggers automated, protocol-driven check-ins at predetermined intervals (e.g., Day 3 and Day 7). The AI asks structured recovery questions regarding medication adherence, pain levels, and wound healing. If a patient reports concerning symptoms or high pain scores, enVoy instantly flags the issue and alerts the hospital nursing team or attending physician.
 
 ### Is AI patient communication secure and compliant?
-Yes. enVoy adheres to India's Digital Personal Data Protection Act (DPDPA 2023), ISO/IEC 27001 information security principles, and HIPAA-grade encryption standards. All patient conversations and health data are encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. Patient consent is collected explicitly, and role-based access controls prevent unauthorized access.
+Yes. enVoy maintains security and architecture aligned with enterprise data protection standards, including DPDPA 2023 and ISO/IEC 27001 principles. All patient conversations and health data are encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. Patient consent is collected explicitly, and role-based access controls prevent unauthorized access.
 
 ### How long does enVoy take to implement?
 enVoy is designed for rapid enterprise deployment and typically goes live within 7 business days from onboarding. The process involves ingesting the provider's specialties, pricing, and FAQs, configuring the WhatsApp Business API number, testing calendar/HMS connectors, and training staff on the human handover dashboard.

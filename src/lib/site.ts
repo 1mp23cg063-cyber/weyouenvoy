@@ -99,8 +99,8 @@ export const CAPABILITIES = [
     body: "Writes customer details, conversation summaries, qualification and payment confirmations back to your CRM.",
   },
   {
-    title: "Any written language",
-    body: "Kannada, Hindi and English out of the box, switching language mid-chat to match the customer.",
+    title: "Multilingual support",
+    body: `${LANGUAGES}, switching language mid-chat to match the customer.`,
   },
 ];
 
@@ -226,7 +226,7 @@ export const INDUSTRIES: Industry[] = [
       {
         title: "Pre-Visit Preparation & Directions",
         body: "Sends contextual reminders 24h and 2h prior to the visit, including fasting guidelines for blood tests, prior report checklists, and hospital parking instructions.",
-        proof: "No-show reduction up to 35%",
+        proof: "Prepared arrivals on schedule",
       },
       {
         title: "Live OPD Queue & Token Updates",
@@ -322,7 +322,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         q: "Is AI patient communication secure and compliant?",
-        a: "Yes. enVoy adheres to India's Digital Personal Data Protection Act (DPDPA 2023), ISO/IEC 27001 information security principles, and HIPAA-grade encryption standards. All patient conversations and health data are encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. Patient consent is collected explicitly, and role-based access controls prevent unauthorized access.",
+        a: "Yes. enVoy maintains security and architecture aligned with enterprise data protection standards, including DPDPA 2023 and ISO/IEC 27001 principles. All patient conversations and health data are encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. Patient consent is collected explicitly, and role-based access controls prevent unauthorized access.",
       },
     ],
     closing: "Give your patients the same prepared hospital.",
@@ -418,7 +418,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         q: "Does enVoy reply to parents in Kannada or Hindi?",
-        a: "Yes. enVoy replies in any written language (Kannada, Hindi and English out of the box) and switches mid-chat to match the parent.",
+        a: `Yes. enVoy supports ${LANGUAGES}, switching mid-chat to match the parent.`,
       },
       {
         q: "Does enVoy update our admission records?",
